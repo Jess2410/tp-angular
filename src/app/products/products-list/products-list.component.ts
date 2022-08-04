@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Products } from 'src/app/shared/product.model';
 import { ProductService } from '../product.service';
 
@@ -9,13 +9,29 @@ import { ProductService } from '../product.service';
 })
 export class ProductsListComponent implements OnInit {
 
-  products: Products[] = []
+
+  products: Products[] | undefined
+
+  columnDefs =
+  [
+   { field: '_id' },
+   { field: 'name' },
+   { field: 'additionalFeatures' }
+  ];
+
+// rowData = Products
+
+  // rowData = [
+  //   { _id: "Toyota", name: "Celica", additionalFeatures: 35000 },
+  //   { _id: "Ford", name: "Mondeo", additionalFeatures: 32000 },
+  //   { _id: "Porsche", name: "Boxter", additionalFeatures: 72000 }
+  // ];
 
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
     this.productService.getAllDocs().subscribe((data) => {
-      this.products.push(data);
+      this.products = (data);
       console.log(this.products)
     });
   }

@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { AgGridModule } from 'ag-grid-angular';
 
 import { ProductsRoutingModule } from './products-routing.module';
 import { SharedModule } from '../shared/shared.module';
@@ -17,6 +18,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
   ],
   imports: [
     SharedModule,
+    AgGridModule,
     ProductsRoutingModule
   ]
 })
