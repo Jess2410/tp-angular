@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'st-button-link',
@@ -7,9 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ButtonLinkComponent implements OnInit {
 
-  constructor() { }
+  external: Boolean = true;
+
+  @Input() href!: string;
+  @Input() path!: string[];
+
+  constructor(private router: Router) {
+    console.log('constructor', this.href);
+  }
 
   ngOnInit(): void {
+    if (!this.href && this.path?.length) {
+      this.external = false;
+      this.href = this.router.createUrlTree(this.path).toString();
+    }
+  }
+
+  handleClick(event: MouseEvent): void {
+    if (this.external) {
+      return;
+    }
+    event.preventDefault();
+    this.router.navigateByUrl(this.href);
   }
 
 }

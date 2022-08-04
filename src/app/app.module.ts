@@ -6,11 +6,17 @@ import { AppComponent } from './app.component';
 import { ProductsModule } from './products/products.module';
 import { SharedModule } from './shared/shared.module';
 import { TopBarComponent } from './core/top-bar/top-bar.component';
+import { HomeComponent } from './core/home/home.component';
+import { NotFoundComponent } from './core/not-found/not-found.component';
+import { AboutComponent } from './core/about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TopBarComponent
+    TopBarComponent,
+    HomeComponent,
+    NotFoundComponent,
+    AboutComponent
   ],
   imports: [
     SharedModule,

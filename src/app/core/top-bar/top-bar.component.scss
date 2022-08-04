@@ -1,3 +1,26 @@
+@import '../../../styles/variables';
+
 :host {
   display: block;
+  background-color: $color-st_darkBlue;
+  color: white;
+  border-radius: 7px;
+}
+
+.active {
+  font-weight: bold;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  width: 30%;
+  align-items: center;
+  padding: 1rem;
+}
+
+a {
+  color: white;
+  text-decoration: none;
 }
