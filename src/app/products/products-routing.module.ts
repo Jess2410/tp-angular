@@ -5,12 +5,21 @@ import { ProductsCompareComponent } from './products-compare/products-compare.co
 import { ProductsListComponent } from './products-list/products-list.component';
 import { ProductsSearchComponent } from './products-search/products-search.component';
 
+
 const routes: Routes = [
-  {path: "products", component: ProductsListComponent},
-  {path: "products/search", component: ProductsSearchComponent},
-  {path: "products/compare", component: ProductsCompareComponent},
-  {path: "products/:productId", component: ProductDetailsComponent},
-];
+  {path: "products", component: ProductsListComponent, data: {
+    title: 'Products List'
+  }},
+  {path: "products/search", component: ProductsSearchComponent, data: {
+    title: 'Search products'
+  }},
+  {path: "products/compare", component: ProductsCompareComponent, data: {
+    title: 'Compare products'
+  }},
+  {path: "products/:productId", component: ProductDetailsComponent, data: {
+    title: 'Product detail'
+  }},
+]
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

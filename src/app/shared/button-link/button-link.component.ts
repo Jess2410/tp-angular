@@ -11,7 +11,7 @@ export class ButtonLinkComponent implements OnInit {
   external: Boolean = true;
 
   @Input() href!: string;
-  @Input() path!: string[];
+  @Input() path!: string[]
 
   constructor(private router: Router) {
     console.log('constructor', this.href);
