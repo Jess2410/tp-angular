@@ -9,6 +9,7 @@ import { TopBarComponent } from './core/top-bar/top-bar.component';
 import { HomeComponent } from './core/home/home.component';
 import { NotFoundComponent } from './core/not-found/not-found.component';
 import { AboutComponent } from './core/about/about.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { AboutComponent } from './core/about/about.component';
   imports: [
     SharedModule,
     BrowserModule,
+    HttpClientModule,
     ProductsModule,
     AppRoutingModule
   ],
