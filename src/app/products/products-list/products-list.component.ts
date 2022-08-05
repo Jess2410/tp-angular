@@ -14,18 +14,11 @@ export class ProductsListComponent implements OnInit {
 
   columnDefs =
   [
-   { field: '_id' },
-   { field: 'name' },
-   { field: 'additionalFeatures' }
-  ];
-
-// rowData = Products
-
-  // rowData = [
-  //   { _id: "Toyota", name: "Celica", additionalFeatures: 35000 },
-  //   { _id: "Ford", name: "Mondeo", additionalFeatures: 32000 },
-  //   { _id: "Porsche", name: "Boxter", additionalFeatures: 72000 }
-  // ];
+   { field: '_id', sortable:true, resizable: true, flex: 1, pinned: true,
+   lockPinned: true, cellClass: 'lock-pinned', checkboxSelection:true  },
+   { field: 'name', sortable:true, resizable: true, flex: 1    },
+   { field: 'additionalFeatures', sortable:true, resizable: true, flex: 3}
+  ]
 
   constructor(private productService: ProductService) { }
 
