@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import {Router } from '@angular/router';
 import { Products } from 'src/app/shared/product.model';
 import { ProductService } from '../product.service';
 
@@ -20,7 +21,10 @@ export class ProductsListComponent implements OnInit {
    { field: 'additionalFeatures', sortable:true, resizable: true, flex: 3}
   ]
 
-  constructor(private productService: ProductService) { }
+  constructor(
+    private productService: ProductService,
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
     this.productService.getAllDocs().subscribe((data) => {
@@ -28,5 +32,15 @@ export class ProductsListComponent implements OnInit {
       console.log(this.products)
     });
   }
+
+  handleRowClick($event: Event|any){
+    const product_id = $event.data._id
+    this.router.navigateByUrl(`/products/${product_id}`)
+  }
+
+  // onSelectionChanged($event: Event|any) {
+  //   console.log($event); // verify that the method is fired upon selection
+  //   // do the rest
+  // }
 
 }
