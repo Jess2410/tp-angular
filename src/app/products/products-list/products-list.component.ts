@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router } from '@angular/router';
-import { Products } from 'src/app/shared/product.model';
+import { Product } from 'src/app/shared/product.model';
 import { ProductService } from '../product.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { ProductService } from '../product.service';
 export class ProductsListComponent implements OnInit {
 
 
-  products: Products[] | undefined
+  products: Product[] | undefined
 
   columnDefs =
   [

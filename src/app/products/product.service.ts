@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
-import { Products } from '../shared/product.model';
+import { Product } from '../shared/product.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +10,8 @@ export class ProductService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getAllDocs(): Observable<Products[]> {
-    const result = this.httpClient.get<Products[]>('https://6a59157b-430d-4969-b802-b9c12470dafb-bluemix.cloudantnosqldb.appdomain.cloud/phones/_all_docs?include_docs=true');
+  getAllDocs(): Observable<Product[]> {
+    const result = this.httpClient.get<Product[]>('https://6a59157b-430d-4969-b802-b9c12470dafb-bluemix.cloudantnosqldb.appdomain.cloud/phones/_all_docs?include_docs=true');
 
     return result.pipe(
         map((response: any) => {
@@ -26,9 +26,8 @@ export class ProductService {
 
   }
 
-  // getDocById(product_id: string): Observable<Products[]> {
-  //   const result = this.httpClient.get<Products[]>(`https://6a59157b-430d-4969-b802-b9c12470dafb-bluemix.cloudantnosqldb.appdomain.cloud/phones/${product_id}`);
-
-  // }
+  getDocById(product_id: string): Observable<Product> {
+    return this.httpClient.get<Product>(`https://6a59157b-430d-4969-b802-b9c12470dafb-bluemix.cloudantnosqldb.appdomain.cloud/phones/${product_id}`);
+  }
 
 }
