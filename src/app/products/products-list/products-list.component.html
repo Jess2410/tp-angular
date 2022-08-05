@@ -3,5 +3,7 @@ style="width: 100%; height: 500px;"
 class="ag-theme-balham"
 [rowData]="products"
 [columnDefs]="columnDefs"
-rowSelection='multiple'>
+rowSelection='multiple'
+(rowClicked)="handleRowClick($event)"
+>
 </ag-grid-angular>
