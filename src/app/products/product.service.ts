@@ -26,4 +26,9 @@ export class ProductService {
 
   }
 
+  // getDocById(product_id: string): Observable<Products[]> {
+  //   const result = this.httpClient.get<Products[]>(`https://6a59157b-430d-4969-b802-b9c12470dafb-bluemix.cloudantnosqldb.appdomain.cloud/phones/${product_id}`);
+
+  // }
+
 }

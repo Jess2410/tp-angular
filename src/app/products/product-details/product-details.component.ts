@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute} from '@angular/router';
 import { ProductService } from '../product.service';
 
 @Component({
@@ -7,13 +7,20 @@ import { ProductService } from '../product.service';
   templateUrl: './product-details.component.html',
   styleUrls: ['./product-details.component.scss']
 })
-export class ProductDetailsComponent implements OnInit {
+export class ProductDetailsComponent  {
 
   constructor(
     private productService: ProductService,
-    private activatedRoute: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    ) {
 
-  ngOnInit(): void {
-  }
 
+      const product_id: string|null = this.route.snapshot.paramMap.get('id');
+
+      console.log("🚀 ~ file: product-details.component.ts ~ line 22 ~ ProductDetailsComponent ~ ngOnInit ~ product_id", product_id)
+
+
+
+
+    }
 }
