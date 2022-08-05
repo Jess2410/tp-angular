@@ -45,7 +45,10 @@
 /***************************************************************************************************
  * Zone JS is required by default for Angular itself.
  */
-import 'zone.js';  // Included with Angular CLI.
+import 'zone.js';
+(window as any).global = window;
+(window as any).process = {};
+(window as any).process.nextTick = setTimeout;  // Included with Angular CLI.
 
 
 /***************************************************************************************************

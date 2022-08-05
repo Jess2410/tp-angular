@@ -8,6 +8,12 @@ import { Product } from '../shared/product.model';
 })
 export class ProductService {
 
+  selectedProducts: Product[] = [];
+
+setSelectedProducts(products: Product[]): void {
+  this.selectedProducts = products;
+}
+
   constructor(private httpClient: HttpClient) { }
 
   getAllDocs(): Observable<Product[]> {
@@ -29,5 +35,6 @@ export class ProductService {
   getDocById(product_id: string): Observable<Product> {
     return this.httpClient.get<Product>(`https://6a59157b-430d-4969-b802-b9c12470dafb-bluemix.cloudantnosqldb.appdomain.cloud/phones/${product_id}`);
   }
+
 
 }

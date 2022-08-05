@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/shared/product.model';
 import { ProductService } from '../product.service';
 
@@ -38,9 +38,10 @@ export class ProductsListComponent implements OnInit {
     this.router.navigateByUrl(`/products/${product_id}`)
   }
 
-  // onSelectionChanged($event: Event|any) {
-  //   console.log($event); // verify that the method is fired upon selection
-  //   // do the rest
-  // }
+  handleSelectionChanged(event: any): void {
+    this.productService.setSelectedProducts(event.api.getSelectedRows());
+    console.log(event);
+
+  }
 
 }

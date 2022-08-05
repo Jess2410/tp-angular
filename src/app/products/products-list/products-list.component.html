@@ -5,5 +5,7 @@ class="ag-theme-balham"
 [columnDefs]="columnDefs"
 rowSelection='multiple'
 (rowClicked)="handleRowClick($event)"
+(selectionChanged)="handleSelectionChanged($event)"
 >
 </ag-grid-angular>
+<st-button-link [path]="['products', 'compare']">Comparer</st-button-link>
